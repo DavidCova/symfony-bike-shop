@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Default Title{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    {% block extraCSS %}{% endblock %}
+</head>
+<body>
+
+  <nav class="bg-gray-800 text-white p-4">
+    <div class="flex items-center">
+      <!-- Bike icon on the left -->
+      <svg class="h-8 w-8 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+        <path d="M18 13l2 3h-1c-1.3 0-2.6-1-3-2H9c-1.3 0-2.6-1-3-2H0v-2h3c-0.4-1-1.7-1.3-2-2H0V6h1c0.4-1 1.7-1.3 2-2h5c0.4-1 1.7-1.3 2-2h2c0.4 1 1.7 1.3 2 2h5c0.4 1 1.7 1.3 2 2h1v2h-2c-0.4 1-1.7 1.3-2 2h3v2zM15 6H6c-0.3 1-1.6 1.3-2 2H2v2h2c0.3 1 1.6 1.3 2 2h9c0.3-1 1.6-1.3 2-2h2V8h-2c-0.3-1-1.6-1.3-2-2z"/>
+      </svg>
+
+      <!-- Navigation links on the right -->
+      <ul class="ml-auto flex space-x-4">
+        <li><a href="/" class="hover:text-gray-300">Home</a></li>
+        <li><a href="/products" class="hover:text-gray-300">Bikes</a></li>
+        <li><a href="#" class="hover:text-gray-300">Accessories</a></li>
+        {%  if app.session.get('basket') %}
+        <li><a href="/basket" class="hover:text-gray-300">Basket</a></li>
+        {%  endif %}
+        <!-- Add more links as needed -->
+      </ul>
+    </div>
+  </nav>
+
+
+    <main>
+        <!-- Main content goes here -->
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <!-- Footer content goes here -->
+        <p>&copy; Your Company</p>
+    </footer>
+
+    <!-- Add your scripts and other body elements here -->
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+{% extends 'layout.html.twig' %}
+{% block extraCSS %}
+<style>
+/* Form Container */
+#form {
+  max-width: 400px; /* Adjust as needed */
+  margin: auto;
+}
+
+/* Form Fields */
+#form div {
+  margin-bottom: 1rem; /* Adjust as needed */
+}
+
+/* Labels */
+#form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem; /* Adjust as needed */
+}
+
+/* Text Input and Textarea */
+#form input[type="text"],
+#form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc; /* Add your desired border color */
+  border-radius: 0.25rem; /* Adjust as needed */
+}
+
+/* Button */
+#form button {
+  background-color: #4caf50; /* Add your desired background color */
+  color: #fff; /* Add your desired text color */
+  padding: 0.75rem 1.5rem; /* Adjust as needed */
+  border: none;
+  border-radius: 0.25rem; /* Adjust as needed */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#form button:hover {
+  background-color: #45a049; /* Add your desired hover background color */
+}
+
+/* Required Indicator */
+#form .required::before {
+  content: "*";
+  color: red; /* Add your desired required indicator color */
+  margin-right: 0.25rem; /* Adjust as needed */
+}
+
+</style>
+{% endblock %}
+{% block title %}Bike Shop - Shopping Basket{% endblock %}
+
+{% block header %}Your Shopping Basket{% endblock %}
+
+{% block content %}
+
+        <section class=" py-16">
+        <div class="container mx-auto text-center">
+            <h2>Total</h2>
+            <p>$ {{total | number_format(2)}}</p>
+        </div>
+    </section>
+    <section class="bg-gray-100 p-8">
+        <div class="container mx-auto">
+
+           {{form(form)}}
+
+        </div>
+    </section>
+    <section class="bg-blue-500 text-white py-16">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-semibold mb-4">Continue Shopping</h2>
+            <p class="text-lg mb-8">Explore our wide range of bikes suitable for all types of riders.</p>
+            <form action="checkout" class="basket-checkout">
+            <button class="bg-white text-blue-500 py-2 px-4 rounded-md">Checkout</button>
+            </form>
+        </div>
+    </section>
+{% endblock %}

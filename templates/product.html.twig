@@ -1,0 +1,43 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Bike Shop - Quality Bikes
+{% endblock %}
+
+{% block header %}Welcome to Our Bike Shop
+{% endblock %}
+
+{% block content %}
+	<section class="bg-gray-100 p-8">
+		<div class="container mx-auto">
+        
+			<h2 class="text-3xl font-semibold mb-4">Featured Bikes</h2>
+<small class="text-sm font-semibold mb-4">
+		<a href="/products" class="text-sm font-semibold">Bikes</a> / <span class="text-blue-500">{{bike.name}}</span>
+		</small>
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+					<!-- Featured Bike 1 -->
+					<div class="bg-white p-6 rounded-md shadow-md">
+                    {% if bike.image %}
+						<img src="/images/{{bike.image}}" alt="Mountain Bike" class="mb-4 rounded-md">
+                    {% endif %}
+						<h3 class="text-xl font-semibold mb-2">{{bike.name}}</h3>
+						<p class="text-gray-600">{{bike.description}}.</p>
+						<p class="text-orange-500 font-semibold mt-2">${{bike.price}}</p>
+						<form method="post">
+					
+
+						<button class="{% if inBasket %} mt-4 bg-blue-200 {% else %} mt-4 bg-blue-500 {% endif %} text-white py-2 px-4 rounded-md"{% if inBasket %} disabled {% endif %}>Add to Cart</button>
+						</form>
+					</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-blue-500 text-white py-16">
+		<div class="container mx-auto text-center">
+			<h2 class="text-4xl font-semibold mb-4">Quality Bikes for Every Rider</h2>
+			<p class="text-lg mb-8">Explore our wide range of bikes suitable for all types of riders.</p>
+			<a href="#shop" class="bg-white text-blue-500 py-2 px-4 rounded-md">Shop Now</a>
+		</div>
+	</section>
+{% endblock %}
